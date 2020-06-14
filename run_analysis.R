@@ -1,9 +1,9 @@
 ##Read data: training and test sets
-train_label <- read.table("./train/y_train.txt")
-train_data <- read.table("./train/X_train.txt")
+train_label <- as.data.frame(read.table("./train/y_train.txt"))
+train_data <- as.data.frame(read.table("./train/X_train.txt"))
 
-test_label <- read.table("./test/y_test.txt")
-test_data <- read.table("./test/X_test.txt")
+test_label <- as.data.frame(read.table("./test/y_test.txt"))
+test_data <- as.data.frame(read.table("./test/X_test.txt"))
 
 ##Merges the training and the test sets to create one data set.
 
@@ -19,5 +19,15 @@ Deviations <- apply(full_dataset, 2, sd)
 #summarized_data <- rbind(Means, Deviations)
 ##Uses descriptive activity names to name the activities in the data set
 
+activities <- read.table("activity_labels.txt")
+
 
 ##Appropriately labels the data set with descriptive variable names.
+
+variables <- read.table("features.txt")
+
+
+##From the data set above, creates a second, independent tidy data set 
+##with the average of each variable for each activity and each subject.
+
+##A job for tapply!
