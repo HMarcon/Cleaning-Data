@@ -43,4 +43,4 @@ summarized_data <- as.data.frame(rbind(Means, Deviations))
 
 ##A job for tapply!
 
-indep <- tapply(full_dataset[-562], full_dataset$activity, mean)
+indep <- tapply(full_dataset[,1], full_dataset$activity, mean)
